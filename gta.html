@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GTA Wiki</title>
+    <link rel="stylesheet" href="gta.css">
+    
+    <link rel="preload" href="gta1_logo.mp4" as="video" type="video/mp4">
+    <link rel="preload" href="gta2_logo.mp4" as="video" type="video/mp4">
+    <link rel="preload" href="gta3_logo.mp4" as="video" type="video/mp4">
+    <link rel="preload" href="gtavc_logo.mp4" as="video" type="video/mp4">
+    <link rel="preload" href="gtasa_logo.mp4" as="video" type="video/mp4">
+    <link rel="preload" href="gta4_logo.mp4" as="video" type="video/mp4">
+    <link rel="preload" href="gta5_logo.mp4" as="video" type="video/mp4">
+    <link rel="preload" href="gta6_logo.mp4" as="video" type="video/mp4">
+</head>
+
+<body>
+    
+    <button id="menuToggle" class="sidebar-toggle">☰</button>
+    
+    <div class="layout">
+        
+        <aside class="sidebar">
+            <nav>
+                <a class="nav-item active" href="gta.html" data-logo="gta.jpg">
+                    <img src="gta.jpg" alt="GTA">
+                    <span>GTA</span>
+                </a>
+                <a class="nav-item" href="mario.html" data-logo="mario.png">
+                    <img src="mario.png" alt="Mario">
+                    <span>Mario</span>
+                </a>
+                <a class="nav-item" href="fnaf.html" data-logo="fnaf.png">
+                    <img src="fnaf.png" alt="FNAF">
+                    <span>FNAF</span>
+                </a>
+                <a class="nav-item" href="resident.html" data-logo="resident.png">
+                    <img src="resident.png" alt="Resident Evil">
+                    <span>Resident Evil</span>
+                </a>
+                <a class="nav-item" href="ghost.html" data-logo="ghost.png">
+                    <img src="ghost.png" alt="Ghost Of Tsushima">
+                    <span>Ghost Of Tsushima</span>
+                </a>
+                <a class="nav-item" href="onepiece.html" data-logo="one.jpg">
+                    <img src="one.jpg" alt="One Piece">
+                    <span>One Piece</span>
+                </a>
+                <a class="nav-item" href="fantasy.html" data-logo="final.png">
+                    <img src="final.png" alt="Final Fantasy">
+                    <span>Final Fantasy</span>
+                </a>
+                <a class="nav-item" href="minecraft.html" data-logo="mine.png">
+                    <img src="mine.png" alt="Minecraft">
+                    <span>Minecraft</span>
+                </a>
+                <a class="nav-item" href="zelda.html" data-logo="zelda.png">
+                    <img src="zelda.png" alt="Zelda">
+                    <span>Zelda</span>
+                </a>
+                <a class="nav-item" href="pokemon.html" data-logo="pokemon.png">
+                    <img src="pokemon.png" alt="Pokémon">
+                    <span>Pokémon</span>
+                </a>
+            </nav>
+        </aside>
+        
+        <main class="main-content">
+            
+            <section class="hero">
+                <video id="heroVideo" autoplay muted loop playsinline></video>
+                <img id="heroImage" alt="Imagem do jogo" style="display:none; width:100%; height:100%; object-fit:cover;">
+                <div class="hero-overlay"></div>
+                <div class="hero-content">
+                    <h1 id="gameTitle">Grand Theft Auto III</h1>
+                    <div class="game-bar">
+                        <button onclick="changeGame('gta1')">GTA 1</button>
+                        <button onclick="changeGame('gta2')">GTA 2</button>
+                        <button onclick="changeGame('gta3')">GTA III</button>
+                        <button onclick="changeGame('vice')">Vice City</button>
+                        <button onclick="changeGame('sa')">San Andreas</button>
+                        <button onclick="changeGame('iv')">GTA IV</button>
+                        <button onclick="changeGame('v')">GTA V</button>
+                        <button onclick="changeGame('vi')">GTA VI</button>
+                    </div>
+                    <a id="buyBtnHero" class="buy-btn" href="#">Comprar</a>
+                </div>
+            </section>
+            
+            <section class="section">
+                <h2>📖 História</h2>
+                <div class="story-card" id="storyCard">
+                    <img id="storyCardImg" src="gta3H.jpg" alt="História GTA III">
+                    <p>Clique para abrir a história completa.</p>
+                </div>
+            </section>
+            
+            <section class="section">
+                <h2>👥 Personagens</h2>
+                <div class="characters">
+                    <div class="character-card">
+                        <img id="char1Img" src="claude.png" alt="Personagem 1">
+                        <h3 id="char1Name">Claude</h3>
+                    </div>
+                    <div class="character-card">
+                        <img id="char2Img" src="catalina.png" alt="Personagem 2">
+                        <h3 id="char2Name">Catalina</h3>
+                    </div>
+                    <div class="character-card">
+                        <img id="char3Img" src="asuka.jpg" alt="Personagem 3">
+                        <h3 id="char3Name">Asuka</h3>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="section">
+                <h2>📷 Galeria</h2>
+                <div class="gallery">
+                    <img id="gallery1" src="gta3C1.jpg" alt="Imagem 1">
+                    <img id="gallery2" src="gta3C2.jpg" alt="Imagem 2">
+                    <img id="gallery3" src="gta3C3.jpg" alt="Imagem 3">
+                    <img id="gallery4" src="gta3C4.png" alt="Imagem 4">
+                </div>
+            </section>
+            
+            <section class="section">
+                <h2>🛒 Comprar</h2>
+                <a id="buyBtn" href="#" class="buy-btn">Comprar Jogo</a>
+            </section>
+            
+        </main>
+        
+    </div>
+    
+    <div id="storyModal" class="story-modal">
+        <button class="close-story" onclick="closeStory()">✕</button>
+        <div class="story-container">
+            <div class="story-image">
+                <img id="storyImg" src="" alt="">
+            </div>
+            <div class="story-text">
+                <h2 id="storyTitle"></h2>
+                <p id="storyContent"></p>
+            </div>
+        </div>
+    </div>
+    
+    <div id="pageTransition">
+        <video id="transitionVideo" playsinline muted></video>
+    </div>
+    
+    <script src="gta.js" defer></script>
+    
+    <div id="characterModal" class="story-modal">
+        <button class="close-story" onclick="closeCharacter()">✕</button>
+        <div class="story-container">
+            <div class="story-image">
+                <img id="characterModalImg" src="" alt="">
+            </div>
+            <div class="story-text">
+                <h2 id="characterModalName"></h2>
+                <p id="characterModalDesc"></p>
+            </div>
+        </div>
+    </div>
+    
+    <div id="imageViewer" class="story-modal">
+        <button class="close-story" onclick="closeViewer()">✕</button>
+        <img id="viewerImg" src="" alt="" style="max-width:90%; max-height:90%; border-radius:20px;">
+    </div>
+    
+</body>
+
+</html>

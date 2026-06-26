@@ -1,0 +1,588 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background: #050505;
+  color: white;
+  overflow-x: hidden;
+}
+
+/* ========================= */
+/* LAYOUT */
+/* ========================= */
+.layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* ========================= */
+/* SIDEBAR */
+/* ========================= */
+.sidebar {
+  width: 260px;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #0a0a0a;
+  border-right: 1px solid rgba(255, 255, 255, .08);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  z-index: 1000;
+  transition: transform .4s ease;
+}
+
+.sidebar.hidden {
+  transform: translateX(-100%);
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  text-decoration: none;
+  color: white;
+  transition: .25s;
+}
+
+.nav-item img {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+}
+
+.nav-item:hover {
+  background: rgba(255, 255, 255, .05);
+  transform: translateX(5px);
+}
+
+.nav-item.active {
+  background: rgba(244, 196, 48, .12);
+}
+
+/* ========================= */
+/* BOTÃO SIDEBAR */
+/* ========================= */
+.sidebar-toggle {
+  position: fixed;
+  top: 15px;
+  left: 275px;
+  width: 45px;
+  height: 45px;
+  border: none;
+  border-radius: 10px;
+  background: #f4c430;
+  color: black;
+  font-size: 1.4rem;
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 9999;
+  transition: left .4s ease, transform .3s ease;
+}
+
+.sidebar-toggle:hover {
+  transform: scale(1.08);
+}
+
+/* ========================= */
+/* MAIN */
+/* ========================= */
+.main-content {
+  flex: 1;
+  margin-left: 260px;
+  transition: .4s ease;
+}
+
+.main-content.full {
+  margin-left: 0;
+}
+
+/* ========================= */
+/* HERO */
+/* ========================= */
+.hero {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+#heroVideo,
+#heroImage {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, .85),
+    rgba(0, 0, 0, .25)
+  );
+}
+
+.hero-content {
+  position: absolute;
+  left: 60px;
+  bottom: 60px;
+  z-index: 2;
+}
+
+.hero-content h1 {
+  font-size: 5rem;
+  font-weight: 900;
+  margin-bottom: 25px;
+  text-shadow: 0 0 25px black;
+}
+
+/* ========================= */
+/* BOTÕES GTA */
+/* ========================= */
+.game-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.game-bar button {
+  padding: 14px 20px;
+  border: none;
+  border-radius: 12px;
+  background: #222;
+  color: white;
+  cursor: pointer;
+  transition: .3s;
+}
+
+.game-bar button:hover {
+  background: #f4c430;
+  color: black;
+  transform: translateY(-4px);
+}
+
+/* ========================= */
+/* SECTIONS */
+/* ========================= */
+.section {
+  max-width: 1300px;
+  margin: 40px auto;
+  padding: 30px;
+  background: rgba(255, 255, 255, .03);
+  border: 1px solid rgba(255, 255, 255, .08);
+  border-radius: 18px;
+}
+
+.section h2 {
+  font-size: 2rem;
+  margin-bottom: 25px;
+}
+
+/* ========================= */
+/* STORY CARD */
+/* ========================= */
+.story-card {
+  cursor: pointer;
+  overflow: hidden;
+  border-radius: 16px;
+  background: #111;
+  transition: .3s;
+}
+
+.story-card:hover {
+  transform: translateY(-5px);
+}
+
+.story-card img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  object-position: center 20%;
+  display: block;
+}
+
+.story-card p {
+  padding: 20px;
+  text-align: center;
+}
+
+/* ========================= */
+/* PERSONAGENS */
+/* ========================= */
+.characters {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 25px;
+}
+
+.character-card {
+  width: 320px;
+  background: #111;
+  border-radius: 18px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: .3s;
+}
+
+.character-card:hover {
+  transform: translateY(-8px);
+  border: 1px solid #f4c430;
+}
+
+.character-card img {
+  width: 100%;
+  height: 350px;
+  object-fit: cover;
+  object-position: center 15%;
+  display: block;
+}
+
+.character-card h3 {
+  padding: 15px;
+  text-align: center;
+  font-size: 1.2rem;
+}
+
+/* ========================= */
+/* GALERIA */
+/* ========================= */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.gallery img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 16px;
+  cursor: pointer;
+  transition: .3s;
+}
+
+.gallery img:hover {
+  transform: scale(1.05);
+}
+
+/* ========================= */
+/* COMPRAR (ALTERADO PARA ESCONDER OS DOIS BOTÕES) */
+/* ========================= */
+.buy-btn {
+  display: none !important; /* Esconde o botão do Hero e o botão de baixo */
+}
+
+.main-content > .section:last-of-type {
+  display: none !important; /* Esconde totalmente a seção inteira de "🛒 Comprar" no final */
+}
+
+/* ========================= */
+/* MODAL HISTÓRIA */
+/* ========================= */
+.story-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, .95);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 99999;
+}
+
+.story-modal.active {
+  display: flex;
+  animation: fadeIn .4s ease;
+}
+
+.story-container {
+  width: 90%;
+  max-width: 1300px;
+  display: flex;
+  gap: 40px;
+}
+
+.story-image {
+  flex: 1;
+}
+
+.story-image img {
+  width: 100%;
+  height: 700px;
+  object-fit: cover;
+  object-position: center 20%;
+  border-radius: 20px;
+}
+
+.story-text {
+  flex: 1;
+  overflow-y: auto;
+  max-height: 700px;
+  padding: 25px;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 16px;
+}
+
+.story-text h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: #f4c430;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+}
+
+.story-text p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin-bottom: 18px;
+  text-align: justify;
+}
+
+.story-text strong {
+  color: #bda150;
+}
+
+.story-text em {
+  color: #ccc;
+}
+
+.story-text::-webkit-scrollbar {
+  width: 8px;
+}
+.story-text::-webkit-scrollbar-thumb {
+  background: #f4c430;
+  border-radius: 8px;
+}
+.story-text::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.close-story {
+  position: absolute;
+  top: 25px;
+  right: 30px;
+  width: 50px;
+  height: 50px;
+  border: none;
+  border-radius: 50%;
+  background: #f4c430;
+  color: black;
+  font-size: 1.5rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100000;
+}
+
+#storyContent {
+  line-height: 1.6;
+  font-size: 16px;
+  color: #f0f0f0;
+  padding: 20px;
+  text-align: justify;
+}
+
+#storyModal.active {
+  background: rgba(0, 0, 0, 0.85);
+}
+
+/* ==========================================================================
+   TRANSIÇÃO COM VÍDEO INTELIGENTE E ULTRA OTIMIZADO (SEM TRAVAMENTOS)
+   ========================================================================== */
+#pageTransition {
+  position: fixed;
+  inset: 0;
+  background: black;
+  z-index: 999999;
+  display: flex;
+  align-items: center;     
+  justify-content: center;    
+  opacity: 0;
+  pointer-events: none;
+  
+  /* OTIMIZAÇÃO DE PERFORMANCE: Joga o processamento direto para a GPU */
+  transform: translateZ(0);
+  will-change: opacity;
+  transition: opacity 0.25s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+#pageTransition.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+#pageTransition video {
+  width: 175%; /* Mantido seu padrão esticado expandido lateralmente */              
+  max-width: 1000px; /* Tamanho expandido premium */       
+  height: auto; /* CORRIGIDO: de 'center' para 'auto' para evitar erros de sintaxe visual */            
+  object-fit: contain;      
+  border-radius: 16px;      
+  
+  /* OTIMIZAÇÃO DE PERFORMANCE: Tira o delay/lag visual de renderização de mídia */
+  will-change: transform;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+/* ==========================================================================
+   SUPER COMBO DE RESPONSIVIDADE MOBILE COMPLETO
+   ========================================================================== */
+@media (max-width: 768px) {
+  
+  body {
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+  }
+
+  .layout {
+    flex-direction: column !important;
+  }
+
+  .sidebar-toggle {
+    left: 20px !important;
+    top: 20px !important;
+    z-index: 10000 !important;
+  }
+
+  .sidebar {
+    position: fixed !important;
+    width: 260px !important;
+    height: 100vh !important;
+    top: 0 !important;
+    left: 0 !important;
+    z-index: 9999 !important;
+    transform: translateX(-100%) !important;
+    transition: transform .4s ease !important;
+  }
+
+  .sidebar.hidden {
+    transform: translateX(-100%) !important;
+  }
+
+  .sidebar.active, .sidebar:not(.hidden) {
+    transform: translateX(0) !important;
+  }
+
+  .main-content, .main-content.full {
+    margin-left: 0 !important;
+    width: 100% !important;
+    transition: none !important;
+  }
+
+  .hero-content {
+    left: 20px !important;
+    bottom: 40px !important;
+    right: 20px !important;
+  }
+
+  .hero-content h1 {
+    font-size: 2.8rem !important;
+    line-height: 1.1 !important;
+    text-align: center !important;
+  }
+
+  .game-bar {
+    justify-content: center !important;
+    gap: 8px !important;
+  }
+
+  .game-bar button {
+    padding: 10px 16px !important;
+    font-size: 0.9rem !important;
+    flex: 1 1 calc(50% - 8px) !important;
+    text-align: center !important;
+  }
+
+  .section {
+    margin: 20px 10px !important;
+    padding: 20px 15px !important;
+    border-radius: 14px !important;
+  }
+
+  .section h2 {
+    font-size: 1.6rem !important;
+    text-align: center !important;
+  }
+
+  .story-card img {
+    height: 250px !important;
+    object-fit: cover !important;
+    object-position: center 20% !important;
+  }
+
+  .characters {
+    gap: 15px !important;
+  }
+
+  .character-card {
+    width: 100% !important;
+    max-width: 340px !important;
+  }
+
+  .character-card img {
+    height: 300px !important;
+    object-fit: cover !important;
+    object-position: center 15% !important;
+  }
+
+  .story-container {
+    flex-direction: column !important;
+    gap: 15px !important;
+    width: 95% !important;
+    max-height: 85vh !important;
+    overflow-y: auto !important;
+  }
+
+  .story-image img {
+    height: 200px !important;
+    object-fit: cover !important;
+    object-position: center 20% !important;
+  }
+
+  .story-text {
+    max-height: none !important;
+    padding: 15px !important;
+    background: transparent !important;
+  }
+
+  .story-text h2 {
+    font-size: 1.8rem !important;
+    text-align: center !important;
+  }
+
+  .story-text p {
+    font-size: 1rem !important;
+    line-height: 1.6 !important;
+  }
+
+  .close-story {
+    top: 15px !important;
+    right: 15px !important;
+    width: 42px !important;
+    height: 42px !important;
+    font-size: 1.2rem !important;
+  }
+
+  /* AJUSTE MOBILE SEM BLOQUEIOS */
+  #pageTransition video {
+    border-radius: 16px;    
+  }
+}
